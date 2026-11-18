@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+backend/data/
+
+# Node
+node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Variáveis de ambiente locais (nunca versionar)
+.env
+.env.*
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

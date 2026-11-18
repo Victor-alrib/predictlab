@@ -1,0 +1,448 @@
+{
+  "gerado_em": "2026-11-17T17:55:52",
+  "dataset": "demo-sintetico (DADOS SIMULADOS, semente 42, 90 dias, 15 min)",
+  "versoes": {
+    "python": "3.13.17",
+    "pandas": "3.0.5",
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "statsmodels": "0.15.0"
+  },
+  "manutencao": [
+    {
+      "equipamento": "CMP-01",
+      "falhas": 3,
+      "falhas_completas": 3,
+      "mtbf": 535.0,
+      "mttr": 7.0,
+      "disponibilidade_intrinseca": 98.71,
+      "disponibilidade_observada": 99.03,
+      "falhas_por_30d": 1.0
+    },
+    {
+      "equipamento": "INV-01",
+      "falhas": 2,
+      "falhas_completas": 2,
+      "mtbf": 525.88,
+      "mttr": 2.5,
+      "disponibilidade_intrinseca": 99.53,
+      "disponibilidade_observada": 99.77,
+      "falhas_por_30d": 0.67
+    },
+    {
+      "equipamento": "INV-02",
+      "falhas": 3,
+      "falhas_completas": 3,
+      "mtbf": 346.42,
+      "mttr": 9.0,
+      "disponibilidade_intrinseca": 97.47,
+      "disponibilidade_observada": 98.75,
+      "falhas_por_30d": 1.0
+    },
+    {
+      "equipamento": "MTR-01",
+      "falhas": 4,
+      "falhas_completas": 4,
+      "mtbf": 527.25,
+      "mttr": 10.75,
+      "disponibilidade_intrinseca": 98.0,
+      "disponibilidade_observada": 97.64,
+      "falhas_por_30d": 1.33
+    }
+  ],
+  "manutencao_frota": {
+    "falhas": 12,
+    "mtbf": 483.75,
+    "mttr": 8.0,
+    "disponibilidade_intrinseca": 98.37,
+    "disponibilidade_observada": 98.8
+  },
+  "sazonalidade_INV01_potencia": {
+    "periodo": {
+      "periodo": "diária (24 h)",
+      "horas": 24,
+      "acf": 0.919
+    },
+    "forca_sazonal": 0.9348,
+    "forca_tendencia": 0.0869,
+    "candidatos": [
+      {
+        "periodo": "diária (24 h)",
+        "horas": 24,
+        "acf": 0.919
+      },
+      {
+        "periodo": "semanal (168 h)",
+        "horas": 168,
+        "acf": 0.8579
+      },
+      {
+        "periodo": "turno (8 h)",
+        "horas": 8,
+        "acf": -0.4543
+      },
+      {
+        "periodo": "12 h",
+        "horas": 12,
+        "acf": -0.6281
+      }
+    ]
+  },
+  "classificacao": [
+    {
+      "modelo": "Linha de base (aleatória estratificada)",
+      "equipamentos": [
+        "MTR-01"
+      ],
+      "falhas_treino": 3,
+      "falhas_teste": 2,
+      "precisao": 0.044642857142857144,
+      "recall": 0.03787878787878788,
+      "f1": 0.040983606557377046,
+      "pr_auc": 0.05232897584871268,
+      "roc_auc": 0.49642255892255893,
+      "prevalencia_teste": 0.05263157894736842,
+      "f1_treino": 0.03868471953578337,
+      "cv_f1_media": 0.026648599819331528,
+      "cv_f1_desvio": 0.010388437217705509,
+      "falhas_antecipadas": 2,
+      "falhas_no_teste": 2,
+      "antecedencia_media_h": 9.625,
+      "alarmes_falsos_30d": 85.58857583944423,
+      "avisos": [
+        "Apenas 2 falha(s) no teste: as métricas por evento têm alta incerteza."
+      ],
+      "matriz_confusao": {
+        "vn": 2269,
+        "fp": 107,
+        "fn": 127,
+        "vp": 5
+      },
+      "top_atributos": []
+    },
+    {
+      "modelo": "Random Forest",
+      "equipamentos": [
+        "MTR-01"
+      ],
+      "falhas_treino": 3,
+      "falhas_teste": 2,
+      "precisao": 0.9924812030075187,
+      "recall": 1.0,
+      "f1": 0.9962264150943396,
+      "pr_auc": 0.9999999999999998,
+      "roc_auc": 0.9999999999999999,
+      "prevalencia_teste": 0.05263157894736842,
+      "f1_treino": 0.9960474308300395,
+      "cv_f1_media": 0.9313715905758139,
+      "cv_f1_desvio": 0.06344706227392705,
+      "falhas_antecipadas": 2,
+      "falhas_no_teste": 2,
+      "antecedencia_media_h": 16.5,
+      "alarmes_falsos_30d": 1.1115399459668083,
+      "avisos": [
+        "Apenas 2 falha(s) no teste: as métricas por evento têm alta incerteza."
+      ],
+      "matriz_confusao": {
+        "vn": 2375,
+        "fp": 1,
+        "fn": 0,
+        "vp": 132
+      },
+      "top_atributos": [
+        "vibracao__media_6h",
+        "vibracao__min_24h",
+        "vibracao__media_1h",
+        "vibracao",
+        "vibracao__media_24h"
+      ]
+    },
+    {
+      "modelo": "XGBoost",
+      "equipamentos": [
+        "MTR-01"
+      ],
+      "falhas_treino": 3,
+      "falhas_teste": 2,
+      "precisao": 0.9923664122137404,
+      "recall": 0.9848484848484849,
+      "f1": 0.9885931558935361,
+      "pr_auc": 0.999885647313877,
+      "roc_auc": 0.9999936230996838,
+      "prevalencia_teste": 0.05263157894736842,
+      "f1_treino": 1.0,
+      "cv_f1_media": 0.9234167893961709,
+      "cv_f1_desvio": 0.06627393225331374,
+      "falhas_antecipadas": 2,
+      "falhas_no_teste": 2,
+      "antecedencia_media_h": 16.25,
+      "alarmes_falsos_30d": 1.1115399459668083,
+      "avisos": [
+        "Apenas 2 falha(s) no teste: as métricas por evento têm alta incerteza."
+      ],
+      "matriz_confusao": {
+        "vn": 2375,
+        "fp": 1,
+        "fn": 2,
+        "vp": 130
+      },
+      "top_atributos": [
+        "vibracao__min_24h",
+        "vibracao__media_6h",
+        "vibracao__media_1h",
+        "vibracao",
+        "vibracao__media_24h"
+      ]
+    },
+    {
+      "modelo": "Linha de base (aleatória estratificada)",
+      "equipamentos": [
+        "CMP-01",
+        "INV-01",
+        "INV-02",
+        "MTR-01"
+      ],
+      "falhas_treino": 8,
+      "falhas_teste": 5,
+      "precisao": 0.06007067137809187,
+      "recall": 0.04047619047619048,
+      "f1": 0.04836415362731152,
+      "pr_auc": 0.041956735977532605,
+      "roc_auc": 0.506633348920583,
+      "prevalencia_teste": 0.04119262455865045,
+      "f1_treino": 0.03638814016172507,
+      "cv_f1_media": 0.02107624455614382,
+      "cv_f1_desvio": 0.012860514740826036,
+      "falhas_antecipadas": 5,
+      "falhas_no_teste": 5,
+      "antecedencia_media_h": 12.65,
+      "alarmes_falsos_30d": 57.80007719027403,
+      "avisos": [],
+      "matriz_confusao": {
+        "vn": 9510,
+        "fp": 266,
+        "fn": 403,
+        "vp": 17
+      },
+      "top_atributos": []
+    },
+    {
+      "modelo": "Random Forest",
+      "equipamentos": [
+        "CMP-01",
+        "INV-01",
+        "INV-02",
+        "MTR-01"
+      ],
+      "falhas_treino": 8,
+      "falhas_teste": 5,
+      "precisao": 0.9939024390243902,
+      "recall": 0.3880952380952381,
+      "f1": 0.5582191780821918,
+      "pr_auc": 0.6118191268898481,
+      "roc_auc": 0.8263083547658016,
+      "prevalencia_teste": 0.04119262455865045,
+      "f1_treino": 0.9952413324269205,
+      "cv_f1_media": 0.2922374429223744,
+      "cv_f1_desvio": 0.41328615521405515,
+      "falhas_antecipadas": 3,
+      "falhas_no_teste": 5,
+      "antecedencia_media_h": 18.75,
+      "alarmes_falsos_30d": 0.27788498649170207,
+      "avisos": [
+        "F1 no treino muito maior que no teste: indício de sobreajuste (overfitting)."
+      ],
+      "matriz_confusao": {
+        "vn": 9775,
+        "fp": 1,
+        "fn": 257,
+        "vp": 163
+      },
+      "top_atributos": [
+        "temperatura__desvio_base_7d",
+        "temperatura__min_24h",
+        "temperatura__max_24h",
+        "temperatura__desvio_24h",
+        "temperatura__media_24h"
+      ]
+    },
+    {
+      "modelo": "XGBoost",
+      "equipamentos": [
+        "CMP-01",
+        "INV-01",
+        "INV-02",
+        "MTR-01"
+      ],
+      "falhas_treino": 8,
+      "falhas_teste": 5,
+      "precisao": 0.8865546218487395,
+      "recall": 0.5023809523809524,
+      "f1": 0.6413373860182371,
+      "pr_auc": 0.5546315096347707,
+      "roc_auc": 0.7629413140051438,
+      "prevalencia_teste": 0.04119262455865045,
+      "f1_treino": 0.9986357435197817,
+      "cv_f1_media": 0.2987522281639929,
+      "cv_f1_desvio": 0.40597530478307225,
+      "falhas_antecipadas": 4,
+      "falhas_no_teste": 5,
+      "antecedencia_media_h": 14.375,
+      "alarmes_falsos_30d": 0.5557699729834041,
+      "avisos": [
+        "F1 no treino muito maior que no teste: indício de sobreajuste (overfitting)."
+      ],
+      "matriz_confusao": {
+        "vn": 9749,
+        "fp": 27,
+        "fn": 209,
+        "vp": 211
+      },
+      "top_atributos": [
+        "temperatura__desvio_base_7d",
+        "potencia__min_24h",
+        "corrente__min_24h",
+        "temperatura__tend_6h_24h",
+        "temperatura__desvio_24h"
+      ]
+    }
+  ],
+  "isolation_forest": {
+    "modelo": "Isolation Forest",
+    "equipamentos": [
+      "CMP-01",
+      "INV-01",
+      "INV-02",
+      "MTR-01"
+    ],
+    "falhas_treino": null,
+    "falhas_teste": null,
+    "precisao": 0.08478802992518704,
+    "recall": 0.1619047619047619,
+    "f1": 0.11129296235679215,
+    "pr_auc": 0.08493611170432559,
+    "roc_auc": 0.6733448289299353,
+    "prevalencia_teste": 0.04119262455865045,
+    "f1_treino": null,
+    "cv_f1_media": null,
+    "cv_f1_desvio": null,
+    "falhas_antecipadas": 1,
+    "falhas_no_teste": 5,
+    "antecedencia_media_h": 22.5,
+    "alarmes_falsos_30d": 12.22693940563489,
+    "avisos": [
+      "Isolation Forest detecta comportamento incomum, não necessariamente falha. A comparação com os rótulos de falha abaixo é apenas uma referência."
+    ],
+    "matriz_confusao": {
+      "vn": 9042,
+      "fp": 734,
+      "fn": 352,
+      "vp": 68
+    },
+    "top_atributos": [],
+    "taxa_anomalias_teste": 0.07865829737151825
+  },
+  "previsao": [
+    {
+      "equipamento": "INV-01",
+      "variavel": "potencia",
+      "melhor": "holt_winters",
+      "modelos": [
+        {
+          "modelo": "Ingênuo sazonal (linha de base)",
+          "mae": 4.315087462500933,
+          "rmse": 7.453628474649753,
+          "wape_pct": 44.983157464865734,
+          "vies": 4.282717839917372,
+          "cobertura_ic95": 0.8869047619047619
+        },
+        {
+          "modelo": "Holt-Winters (suavização exponencial)",
+          "mae": 2.3057290440867724,
+          "rmse": 3.9850011063695367,
+          "wape_pct": 24.036354665533555,
+          "vies": 1.229896662426951,
+          "cobertura_ic95": 0.9940476190476191,
+          "ganho_vs_base_pct": 46.56587927535492
+        },
+        {
+          "modelo": "ARIMA + termos de Fourier",
+          "mae": 2.7950020510800018,
+          "rmse": 4.201299617772353,
+          "wape_pct": 29.136841019089132,
+          "vies": 1.512534383418769,
+          "cobertura_ic95": 0.8809523809523809,
+          "ganho_vs_base_pct": 35.227221339794625
+        }
+      ]
+    },
+    {
+      "equipamento": "MTR-01",
+      "variavel": "temperatura",
+      "melhor": "sarimax_fourier",
+      "modelos": [
+        {
+          "modelo": "Ingênuo sazonal (linha de base)",
+          "mae": 5.205145749793767,
+          "rmse": 8.746668775026306,
+          "wape_pct": 8.624566701778225,
+          "vies": 1.1296046561498592,
+          "cobertura_ic95": 0.9404761904761905
+        },
+        {
+          "modelo": "Holt-Winters (suavização exponencial)",
+          "mae": 5.680411466713961,
+          "rmse": 9.190040754314774,
+          "wape_pct": 9.412049141978686,
+          "vies": 2.2789118852232235,
+          "cobertura_ic95": 0.9404761904761905,
+          "ganho_vs_base_pct": -9.130689893535147
+        },
+        {
+          "modelo": "ARIMA + termos de Fourier",
+          "mae": 4.732873350675393,
+          "rmse": 8.855316862106333,
+          "wape_pct": 7.842043982262324,
+          "vies": -0.3523827402320234,
+          "cobertura_ic95": 0.8154761904761905,
+          "ganho_vs_base_pct": 9.073182996596897
+        }
+      ]
+    }
+  ],
+  "alertas": {
+    "total": 481,
+    "por_origem": {
+      "limite": 28,
+      "estatistica": 95,
+      "modelo": 358
+    },
+    "por_severidade": {
+      "baixa": 0,
+      "media": 101,
+      "alta": 380
+    },
+    "por_equipamento": {
+      "MTR-01": {
+        "limite": 14,
+        "estatistica": 26,
+        "modelo": 160
+      },
+      "CMP-01": {
+        "limite": 12,
+        "estatistica": 16,
+        "modelo": 76
+      },
+      "INV-01": {
+        "limite": 0,
+        "estatistica": 24,
+        "modelo": 61
+      },
+      "INV-02": {
+        "limite": 2,
+        "estatistica": 29,
+        "modelo": 61
+      }
+    }
+  }
+}
